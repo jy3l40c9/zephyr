@@ -1,19 +1,18 @@
 name: Backport
-on:
+'on':
   pull_request_target:
     types:
-      - closed
-      - labeled
+    - closed
+    - labeled
     branches:
-      - main
-
+    - main
 jobs:
   backport:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     name: Backport
     steps:
-      - name: Backport
-        uses: zephyrproject-rtos/action-backport@v1.1.1-3
-        with:
-          github_token: ${{ secrets.ZB_GITHUB_TOKEN }}
-          issue_labels: backport
+    - name: Backport
+      uses: zephyrproject-rtos/action-backport@v1.1.1-3
+      with:
+        github_token: ${{ secrets.ZB_GITHUB_TOKEN }}
+        issue_labels: backport
